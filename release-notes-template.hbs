@@ -1,0 +1,20 @@
+{{#if host}}
+  [{{owner}}/{{repository}}]({{host}}/{{owner}}/{{repository}})
+{{else}}
+  {{owner}}/{{repository}}
+{{/if}}
+
+{{#if compareUrl}}
+  [{{previousTag}}...{{currentTag}}]({{compareUrl}})
+{{/if}}
+
+{{#each commitGroups}}
+  ### {{title}}
+
+  {{#each commits}}
+    * {{#if scope}}**{{scope}}:** {{/if}}{{subject}} ([{{hash}}](/{{../owner}}/{{../repository}}/commit/{{hash}}))
+  {{/each}}
+{{/each}}
+
+---
+*This is a beta version. And not even tested!*

@@ -69,7 +69,14 @@
     ],
     "plugins": [
       "@semantic-release/commit-analyzer",
-      "@semantic-release/release-notes-generator",
+      [
+        "@semantic-release/release-notes-generator",
+        {
+          "writerOpts": {
+            "mainTemplate": "{{> header}}\n\n{{#each commitGroups}}\n\n{{#if title}}### {{title}}\n\n{{/if}}\n\n{{#each commits}}\n{{> commit root=@root}}\n{{/each}}\n\n{{/each}}\n\n---\n*This is a custom footer for the release notes.*"
+          }
+        }
+      ],
       "@semantic-release/changelog",
       [
         "@semantic-release/npm",
