@@ -24,11 +24,7 @@ jobs:
       - name: Install dependencies
         run: npm install
 
-      - name: Build and package Windows app
-        run: npm run dist
-
-      - name: Semantic Release
-        id: semantic
+      - name: Run Semantic Release
         uses: cycjimmy/semantic-release-action@v4
         with:
           branch: master

@@ -1,6 +1,6 @@
 {
   "name": "floatplane-windows",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "description": "A wallpaper manager app for Windows.",
   "main": "main.js",
   "scripts": {
@@ -29,6 +29,7 @@
     "@babel/preset-react": "^7.23.3",
     "@semantic-release/changelog": "^6.0.3",
     "@semantic-release/commit-analyzer": "^13.0.1",
+    "@semantic-release/exec": "^6.0.3",
     "@semantic-release/git": "^10.0.1",
     "@semantic-release/github": "^11.0.3",
     "@semantic-release/release-notes-generator": "^14.0.3",
@@ -70,6 +71,12 @@
       "@semantic-release/commit-analyzer",
       "@semantic-release/release-notes-generator",
       "@semantic-release/changelog",
+      [
+        "@semantic-release/exec",
+        {
+          "prepareCmd": "npm run dist"
+        }
+      ],
       [
         "@semantic-release/github",
         {
