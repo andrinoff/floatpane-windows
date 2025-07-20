@@ -1,3 +1,10 @@
+## [1.0.3](https://github.com/andrinoff/floatpane-windows/compare/v1.0.2...v1.0.3) (2025-07-20)
+
+
+### Bug Fixes
+
+* node_modules included ([566f7c5](https://github.com/andrinoff/floatpane-windows/commit/566f7c5183ea6eaccee6c679520c603521973ab3))
+
 ## [1.0.2](https://github.com/andrinoff/floatpane-windows/compare/v1.0.1...v1.0.2) (2025-07-20)
 
 
