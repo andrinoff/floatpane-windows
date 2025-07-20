@@ -1,4 +1,4 @@
-name: Release Windows
+name: Release Windows Version
 
 on:
   push:
@@ -7,34 +7,26 @@ on:
 
 jobs:
   release:
-    strategy:
-      matrix:
-        os: [macos-latest, windows-latest]
-    runs-on: ${{ matrix.os }}
+    runs-on: windows-latest
     permissions:
       contents: write
-      pull-requests: write
-    outputs:
-      new_release_version: ${{ steps.semantic.outputs.new_release_version }}
     steps:
       - name: Checkout
         uses: actions/checkout@v4
         with:
           persist-credentials: false
+
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
           node-version: 21
+
       - name: Install dependencies
         run: npm install
-      - name: Build and package
-        run: |
-          if [ "${{ matrix.os }}" == "windows-latest" ]; then
-            npm run dist:win
-          else
-            npm run dist
-          fi
-        shell: bash
+
+      - name: Build and package Windows app
+        run: npm run dist
+
       - name: Semantic Release
         id: semantic
         uses: cycjimmy/semantic-release-action@v4
